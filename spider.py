@@ -214,7 +214,7 @@ class Parser(object):
 
         # 电影标题和上映年份
         head = self.soup.select('div#content h1 span')
-        if len(head) < 0:
+        if len(head) <= 0:
             raise ValueError('{0} Head list at least have one element(movie title). Commonly, it has two elements,'
             'one is title, another is movie published year'.format(result['source_url']))
         result['title'] = head[0].get_text()
@@ -324,6 +324,9 @@ if __name__ == '__main__':
         os.makedirs(subject_result_path)
     for x in subject_files:
         dir_path = x[0]
+        # exclude dir path name has 'result'
+        if re.search(r'result', dir_path):
+            continue
         for y in x[2]:
             file_path = dir_path + '/' + y
             md5 = m.update(file_path)

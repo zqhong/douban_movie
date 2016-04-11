@@ -15,4 +15,4 @@ $ python spider.py --start 1888 --end 2016 --thread 20
 ```
 
 ## License
-The douban movie spider is licensed under the MIT license. See [License File](LICENSE.md) for more information.
+The douban movie spider is licensed under the MIT license. See [License File](LICENSE) for more information.

@@ -345,5 +345,5 @@ if __name__ == '__main__':
                 raise ValueError('{0} parser have a empty result'.format(file_path))
             logging.debug('========================')
             for k,v in result.items():
-                logging.debug(k, v)
+                logging.debug(k + ' ' + v)
             logging.debug('========================')

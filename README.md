@@ -41,10 +41,21 @@ I parse HTML to JSON. If you don't like JSON, you can fork this resp, and rewrit
 | English Key        | Chinese Key           |
 | -------------------|:---------------------:|
 | playwright         | 编剧                  |
-| language         | 语言                  |
-| language         | 语言                  |
-| language         | 语言                  |
-| language         | 语言                  |
+| language           | 语言                  |
+| title              | 标题                  |
+| rating_num         | 评分                  |
+| cover              | 封面图片              |
+| source_url         | 豆瓣电影源地址        |
+| director           | 导演                  |
+| alias              | 又名                  |
+| imdb_link          | imdb 链接地址编号     |
+| intro              | 电影简介              |
+| actors             | 主演                  |
+| year               | 上映年份              |
+| date               | 上映日期              |
+| regon              | 制片国家/地区         |
+| movie_length       | 片长                  |
+| type               | 电影类型              |
 
 
 ## License

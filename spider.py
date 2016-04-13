@@ -178,6 +178,8 @@ class Subject(object):
         rsp = http_get(self.douban_url)
         if rsp.status_code == 200:
             return rsp.text
+        elif rsp.status_code == 404:
+            pass
         else:
             logging.warning('url: {url} status_code: {code}'.format(url=self.douban_url, code=rsp.status_code))
             logging.warning('request headers:')
@@ -338,7 +340,12 @@ if __name__ == '__main__':
             if os.path.isfile(result_file_path):
                 continue
             with open(file_path, 'r') as fr:
+                logging.debug('parse file path: {0}'.format(file_path))
                 content = fr.read()
+            # when file conent is empty, ignore it
+            if not str(content).strip():
+                logging.debug('parse file is empty: {0}'.format(file_path))
+                continue
             parser.set_html(content)
             result = parser.run()
             if result:
@@ -348,5 +355,5 @@ if __name__ == '__main__':
                 raise ValueError('{0} parser have a empty result'.format(file_path))
             logging.debug('========================')
             for k,v in result.items():
-                logging.debug(k + ' ' + v)
+                logging.debug(k + ': ' + unicode(v))
             logging.debug('========================')

@@ -2,3 +2,5 @@ log
 cache
 .idea
 virtualenv
+*.pyc
+package/*.pyc

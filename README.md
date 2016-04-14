@@ -12,16 +12,10 @@ Crawl douban movie subject to ./cache/subjects
 $ python spider.py --start 1888 --end 2016 --thread 20
 ```
 
-Change directory to ./cache/subjects, and join multi files
+And then, run parser.
+Warning: I use find, awk, and pile. So please run parser.py on *nix. If you use Windows, recommend you install [cmder](http://cmder.net/).
 ```
-$ cd cache/subjects
-$ find . -name '*.html' | xargs awk 1 > subjects.data
-```
-
-Change directory to root, and run parser and specify file which you want to parse
-```
-$ cd ../../
-$ python parser.py --file ./cahce/subjects/subjects.data
+$ python parser.py
 ```
 
 At last, you can see json data to the std. Also, you can redirect std to file. Use this command

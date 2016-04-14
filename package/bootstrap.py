@@ -25,3 +25,7 @@ if not os.path.isdir(subject_result_path):
     os.makedirs(subject_result_path)
 fake = Factory.create('zh_CN')
 m = hashlib.md5()
+
+# 保存所有 subject
+# 每个 subject 为一行
+subjects_result = subject_path + 'subjects.data'

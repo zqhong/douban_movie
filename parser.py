@@ -2,18 +2,24 @@
 
 from __future__ import print_function
 from package.library import Parser
-from package.bootstrap import subject_path
-import argparse
+from package.bootstrap import subjects_result, subject_path
 import json
+import os
 
 
 if __name__ == '__main__':
     parser = Parser()
-    arg_parser = argparse.ArgumentParser()
-    arg_parser.add_argument('--file', help='what file you want to parse', default=subject_path + 'subjects.data', type=str)
-    args = arg_parser.parse_args()
 
-    for line in open(args.file, 'r'):
+    if not os.path.isfile(subjects_result):
+        my_commond = "find {0} -name '*.html' | xargs awk 1 > {1}".format(subject_path, subjects_result)
+        # print('run system commond: ' + my_commond)
+        os.system(my_commond)
+
+    if not os.path.isfile(subjects_result):
+        print('Some commond only support *nix, please run this program on *nix.')
+        exit()
+
+    for line in open(subjects_result, 'r'):
         if not str(line).strip():
             continue
         parser.set_html(line)

@@ -146,9 +146,10 @@ class Subject(object):
             logging.warning(rsp.text)
 
     def save(self, html):
-        html = clean_html(html)
+        html = unicode(clean_html(html))
         with io.open(self.filepath, 'w', encoding='utf-8') as file_w:
-            file_w.write(unicode(html))
+            file_w.write(html)
+        subjects_result_fw.write(html + '\n')
 
 
 class Parser(object):
@@ -159,7 +160,7 @@ class Parser(object):
 
     def set_html(self, html):
         self.html = html
-        self.soup = BeautifulSoup(html, 'html.parser')
+        self.soup = BeautifulSoup(html, 'lxml')
 
 
     def run(self):

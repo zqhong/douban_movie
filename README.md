@@ -7,12 +7,25 @@ $ pip install -r requirements.txt
 ```
 
 ## Usage
+1. Crawl douban movie subject to ./cache/subjects
 ```
-# directly run script
-$ python spider.py
-# run script with arguments
 $ python spider.py --start 1888 --end 2016 --thread 20
 ```
+2. change directory to ./cache/subjects, and join multi files
+```
+$ cd cache/subjects
+$ find . -name '*.html' | xargs awk 1 > subjects.data
+```
+3. change directory to root, and run parser and specify file which you want to parse
+```
+$ cd ../../
+$ python parser.py --file ./cahce/subjects/subjects.data
+```
+4. At last, you can see json data to the std. Also, you can redirect std to file. Use this command
+```
+$ python parser.py --file ./cache/subjects/subjects.data > file
+```
+
 
 ## result
 I parse HTML to JSON. If you don't like JSON, you can fork this resp, and rewrite it.

@@ -12,15 +12,9 @@ Crawl douban movie subject to ./cache/subjects
 $ python spider.py --start 1888 --end 2016 --thread 20
 ```
 
-And then, run parser.
-Warning: I use find, awk, and pile. So please run parser.py on *nix. If you use Windows, recommend you install [cmder](http://cmder.net/).
+And then, run parser. It will output result to output.data
 ```
 $ python parser.py
-```
-
-At last, you can see json data to the std. Also, you can redirect std to file. Use this command
-```
-$ python parser.py --file ./cache/subjects/subjects.data > file
 ```
 
 
